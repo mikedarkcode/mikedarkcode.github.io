@@ -1,0 +1,114 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: SquadaOne;
+    src: url(/assets/fuentes/FjallaOne-Regular.ttf);
+}
+
+.nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    top: 0;
+    background-color: #111;
+    font-family: SquadaOne;
+    font-size: 20px;
+}
+
+.nav__title {
+    font-size: 35px;
+    color: #8B02EA;
+    margin: 0px 50px ;
+    justify-content: center;
+   
+}
+.nav__list {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.nav__item{
+    float: left;
+}
+
+.nav__item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.text-underlined{
+    position: relative;
+    overflow: hidden;
+  
+    will-change: color;
+    transition: color .30s ease-out;  
+  }
+
+.text-underlined:hover {
+    color: #E6E6E6;
+    background-color: #6409A3;
+  }
+
+.text-underlined::before, 
+.text-underlined::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: var(--textUnderlinedLineColor, currentColor);
+  
+    will-change: width;
+    transition: width .1s ease-out;
+  
+    position: absolute;
+    bottom: 0;
+  }
+  
+.text-underlined::before{
+    left: 50%;
+    transform: translateX(-50%); 
+  }
+  
+.text-underlined::after{
+    right: 50%;
+    transform: translateX(50%); 
+  }
+  
+.text-underlined:hover::before, 
+.text-underlined:hover::after{
+    width: 100%;
+    transition-duration: .2s;
+  }
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto__1, .texto__3 {
+    font-family: SquadaOne;
+    font-size: 40px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
