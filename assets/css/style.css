@@ -1,63 +1,180 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
 
 @font-face {
     font-family: SquadaOne;
     src: url(/assets/fuentes/FjallaOne-Regular.ttf);
 }
 
-.nav {
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: SquadaOne;
+  
+  }
+  nav {
+    position: -webkit-sticky; /* Safari */
     position: sticky;
+    top: 0;
+    background: #111;
+    font-size: 20px;
+    padding: 0 15px;
+    
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .menu,
+  .submenu {
+    list-style-type: none;
+  }
+  .logo {
+    font-size: 25px;
+    color: #56068f;
+    padding: 7.5px 10px 7.5px 10px;
+  }
+  .item {
+    color: #fff;
+    padding: 7.5px 10px 7.5px 0;
+  }
+
+
+
+/* Menú en dispositivo móvil */
+.menu {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
-    top: 0;
-    background-color: #111;
-    font-family: SquadaOne;
+}
+
+.menu li a {
+    display: block;
+    padding: 15px 5px;
+}
+
+.menu li .subitem a {
+    padding: 15px;
+}
+
+.toggle {
+    order: 1;
     font-size: 20px;
 }
 
-.nav__title {
-    font-size: 35px;
-    color: #8B02EA;
-    margin: 0px 50px ;
-    justify-content: center;
-   
-}
-.nav__list {
-    list-style-type: none;
-    margin: 10px;
-    padding: 0;
-    overflow: hidden;
-
+.item .button {
+    order: 2;
 }
 
-.nav__item{
-    float: left;
-}
-
-.nav__item a {
-    display: block;
-    color: white;
+.item {
+    order: 3;
+    width: 100%;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    display: none;
+}
+
+.active .item {
+    display: block;
+}
+
+.button.secondary {
+    /* División */
+    border-bottom: 10px #111 solid;
+}
+
+/* Submenu para dispositivos móviles */
+.submenu {
+    display: none;
+  }
+  .submenu-active .submenu {
+    display: block;
+  }
+  .has-submenu i {
+    font-size: 12px;
+  }
+  .has-submenu > a::after {
+    font-family: "Font Awesome 5 Free";
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 900;
+    content: "\f078";
+    color: white;
+    padding-left: 5px;
+  }
+  .subitem a {
+    padding: 10px 15px;
+  }
+  .submenu-active {
+    background-color: #111;
+    border-radius: 3px;
+  }
+
+/* Menú en Tableta */
+@media all and (min-width: 700px) {
+    .menu {
+      justify-content: center;
+    }
+    .logo {
+      flex: 1;
+    }
+    .item.button {
+      width: auto;
+      order: 1;
+      display: block;
+    }
+    .toggle {
+      flex: 1;
+      text-align: right;
+      order: 2;
+    }
+}
+ 
+/* Menú en el escritorio */
+@media all and (min-width: 960px) {
+    .menu {
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      background: none;
+    }
+    .logo {
+      order: 0;
+    }
+    .item {
+      order: 1;
+      position: relative;
+      display: block;
+      width: auto;
+    }
+    .button {
+      order: 2;
+    }
+    .submenu-active .submenu {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 68px;
+      background: #111;
+    }
+    .toggle {
+      display: none;
+    }
+    .submenu-active {
+      border-radius: 0;
+    }
 }
 
 .text-underlined{
     position: relative;
     overflow: hidden;
-  
     will-change: color;
     transition: color .30s ease-out;  
   }
 
 .text-underlined:hover {
     color: #E6E6E6;
-    background-color: #6409A3;
+    background-color: #FE9A2E;
   }
 
 .text-underlined::before, 
@@ -90,18 +207,6 @@
     transition-duration: .2s;
   }
 
-.container {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.texto__1, .texto__3 {
-    font-family: SquadaOne;
-    font-size: 40px;
-}
-
 .footer {
     position: fixed;
     left: 0;
@@ -110,5 +215,28 @@
     height: 40px;
     background-color: #111;
     color: white;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    background: url('../img/fondo.jpeg') no-repeat center; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+}
+
+.info .content {
+    width: 960px; 
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+
+.blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
